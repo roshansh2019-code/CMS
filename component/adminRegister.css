@@ -1,0 +1,410 @@
+
+.adminReg_page {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 20px;
+  background-color: var(--bg-color);
+}
+
+.adminReg_card {
+  position: relative;
+  width: 100%;
+  max-width: 560px;
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 18px;
+  padding: 46px 48px 50px;
+  box-shadow: var(--shadow-lg);
+}
+
+.adminReg_eyebrow {
+  display: block;
+  text-align: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  color: var(--accent-color);
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.adminReg_heading {
+  text-align: center;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 34px;
+  letter-spacing: -.01em;
+}
+
+.adminReg_card form label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  margin-bottom: 9px;
+}
+
+.adminReg_card form label:not(:first-child) {
+  margin-top: 22px;
+}
+
+.adminReg_input {
+  width: 100%;
+  padding: 15px 18px;
+  border-radius: 10px;
+  border: 1.5px solid var(--border-color);
+  background-color: var(--input-bg);
+  color: var(--text-primary);
+  font-size: 15px;
+  font-family: inherit;
+}
+
+.adminReg_input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  background-color: var(--input-focus-bg);
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.12);
+}
+
+.adminReg_input::placeholder {
+  color: var(--text-light);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+}
+
+.adminReg_passBox {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.adminReg_passBox .adminReg_input {
+  padding-right: 48px;
+}
+
+.adminReg_passBox > span {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  color: var(--text-secondary);
+  cursor: pointer;
+}
+
+.adminReg_passBox > span:hover {
+  color: var(--primary-color);
+}
+
+.adminReg_calToggle {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  color: var(--text-secondary);
+  cursor: pointer;
+}
+
+.adminReg_calToggle:hover {
+  color: var(--primary-color);
+}
+
+.adminReg_error {
+  background-color: rgba(239, 68, 68, 0.08);
+  color: var(--danger-color);
+  border: 1px solid var(--danger-color);
+  border-radius: 10px;
+  padding: 12px 16px;
+  font-size: 13.5px;
+  font-weight: 600;
+  margin-bottom: 22px;
+  text-align: center;
+}
+
+.adminReg_fieldError {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--danger-color);
+  margin-top: 8px;
+}
+
+.adminReg_button {
+  width: 100%;
+  margin-top: 36px;
+  padding: 16px;
+  border: none;
+  border-radius: 10px;
+  background-color: var(--primary-color);
+  color: var(--text-white);
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: .01em;
+  cursor: pointer;
+}
+
+.adminReg_button:hover:not(:disabled) {
+  background-color: var(--primary-dark);
+}
+
+.adminReg_button:active:not(:disabled) {
+  transform: scale(.99);
+}
+
+.adminReg_button:disabled {
+  opacity: .55;
+  cursor: not-allowed;
+}
+
+/* ── Date of birth field ── */
+
+.adminReg_dobWrapper {
+  position: relative;
+  width: 100%;
+}
+
+.adminReg_calendarPopover {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 0;
+  width: 100%;
+  min-width: 280px;
+  max-width: 100%;
+  box-sizing: border-box;
+  z-index: 40;
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
+  box-shadow: var(--shadow-md);
+  padding: 16px;
+  overflow: hidden;
+}
+
+.adminReg_calendarHeader {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.adminReg_calNavBtn {
+  width: 28px;
+  height: 28px;
+  flex: 0 0 28px;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  background-color: var(--input-bg);
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.adminReg_calNavBtn:hover {
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+  background-color: var(--row-hover-bg);
+}
+
+.adminReg_calSelect {
+  flex: 1 1 0;
+  min-width: 0;
+  padding: 7px 24px 7px 8px;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  background-color: var(--input-bg);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%236b7280' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 8px center;
+  color: var(--text-primary);
+  font-size: 12.5px;
+  font-weight: 600;
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+  font-family: inherit;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.adminReg_calSelect:focus {
+  outline: none;
+  border-color: var(--primary-color);
+}
+
+.adminReg_calSelectYear {
+  flex: 0 0 68px;
+}
+
+.adminReg_calendarWeekdays {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  margin-bottom: 6px;
+}
+
+.adminReg_calendarWeekdays span {
+  text-align: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--text-light);
+  padding: 4px 0;
+}
+
+.adminReg_calendarGrid {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 2px;
+}
+
+.adminReg_calCell {
+  min-width: 0;
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 8px;
+  background-color: transparent;
+  color: var(--text-primary);
+  font-size: 12.5px;
+  font-weight: 500;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.adminReg_calCell:hover:not(:disabled) {
+  background-color: var(--row-hover-bg);
+  color: var(--primary-color);
+}
+
+.adminReg_calCellSelected {
+  background-color: var(--primary-color);
+  color: var(--text-white);
+  font-weight: 700;
+}
+
+.adminReg_calCellSelected:hover {
+  background-color: var(--primary-dark);
+  color: var(--text-white);
+}
+
+.adminReg_calCellDisabled {
+  color: var(--text-light);
+  cursor: not-allowed;
+}
+
+.adminReg_calCellEmpty {
+  aspect-ratio: 1;
+  min-width: 0;
+}
+
+.adminReg_calCellToday {
+  box-shadow: inset 0 0 0 1.5px var(--accent-color);
+  font-weight: 700;
+  color: var(--accent-color);
+}
+
+.adminReg_calTodayLink {
+  display: block;
+  width: 100%;
+  text-align: center;
+  margin-top: 10px;
+  padding-top: 10px;
+  border: none;
+  border-top: 1px solid var(--border-color);
+  background-color: transparent;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  cursor: pointer;
+}
+
+.adminReg_calTodayLink:hover {
+  color: var(--primary-color);
+}
+
+.adminReg_ageBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 8px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background-color: rgba(245, 158, 11, 0.12);
+  color: var(--accent-color);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11.5px;
+  font-weight: 600;
+}
+
+.adminReg_calendarOpening {
+  animation: adminReg_popIn .16s ease-out;
+}
+
+.adminReg_calendarClosing {
+  animation: adminReg_popOut .14s ease-in forwards;
+}
+
+@keyframes adminReg_popIn {
+  from { opacity: 0; transform: translateY(-6px) scale(.98); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes adminReg_popOut {
+  from { opacity: 1; transform: translateY(0) scale(1); }
+  to   { opacity: 0; transform: translateY(-6px) scale(.98); }
+}
+
+.adminReg_calendarGrid.adminReg_slideNext {
+  animation: adminReg_slideInNext .16s ease-out;
+}
+
+.adminReg_calendarGrid.adminReg_slidePrev {
+  animation: adminReg_slideInPrev .16s ease-out;
+}
+
+@keyframes adminReg_slideInNext {
+  from { opacity: 0; transform: translateX(10px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes adminReg_slideInPrev {
+  from { opacity: 0; transform: translateX(-10px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .adminReg_calendarOpening,
+  .adminReg_calendarClosing,
+  .adminReg_calendarGrid.adminReg_slideNext,
+  .adminReg_calendarGrid.adminReg_slidePrev {
+    animation: none;
+  }
+}
+
+@media (max-width: 560px) {
+  .adminReg_card {
+    padding: 36px 26px 40px;
+    border-radius: 16px;
+  }
+  .adminReg_heading {
+    font-size: 26px;
+  }
+}

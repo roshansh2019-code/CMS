@@ -1,0 +1,263 @@
+.subjectContainer{
+  padding: 25px;
+  background: var(--bg-color);
+  min-height: 100vh;
+  font-family: "Poppins", sans-serif;
+}
+
+.subjectTitle{
+  font-size: 30px;
+  color: var(--text-primary);
+  margin-bottom: 25px;
+  font-weight: 700;
+}
+
+.subjectFilterBox{
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.subjectSelect{
+  height: 50px;
+  padding: 0 15px;
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  min-width: 230px;
+  font-size: 15px;
+  background: var(--card-bg);
+  color: var(--text-primary);
+  outline: none;
+  transition: 0.3s;
+}
+
+.subjectSelect:focus{
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 4px rgba(37,99,235,0.1);
+}
+
+.subjectMessageBox{
+  background: var(--badge-pending-bg);
+  color: var(--badge-pending-color);
+  padding: 14px 18px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  border-left: 5px solid var(--accent-color);
+  font-weight: 600;
+}
+
+.subjectForm{
+  background: var(--card-bg);
+  padding: 25px;
+  border-radius: 18px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+  gap: 18px;
+  margin-bottom: 30px;
+  box-shadow: var(--shadow-md);
+}
+
+.subjectInput{
+  height: 50px;
+  padding: 0 15px;
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  font-size: 15px;
+  background: var(--input-bg);
+  color: var(--text-primary);
+  outline: none;
+  transition: 0.3s;
+  box-sizing: border-box;
+}
+
+.subjectInput:focus{
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 4px rgba(37,99,235,0.1);
+  background: var(--input-focus-bg);
+}
+
+.subjectSubmitBtn{
+  height: 50px;
+  border: none;
+  border-radius: 10px;
+  background: var(--gradient-primary);
+  color: var(--text-white);
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.subjectSubmitBtn:hover{
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.subjectTableWrapper{
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  background-color: var(--card-bg) !important;
+  border-radius: 18px;
+}
+
+.subjectTable{
+  width: 100%;
+  min-width: 1080px;
+  table-layout: fixed;
+  border-collapse: collapse;
+  background-color: var(--card-bg) !important;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+}
+
+.subjectTable th:nth-child(1), .subjectTable td:nth-child(1) { width: 140px; }
+.subjectTable th:nth-child(2), .subjectTable td:nth-child(2) { width: 170px; }
+.subjectTable th:nth-child(3), .subjectTable td:nth-child(3) { width: 220px; }
+.subjectTable th:nth-child(4), .subjectTable td:nth-child(4) { width: 120px; }
+.subjectTable th:nth-child(5), .subjectTable td:nth-child(5) { width: 110px; }
+.subjectTable th:nth-child(6), .subjectTable td:nth-child(6) { width: 170px; }
+.subjectTable th:nth-child(7), .subjectTable td:nth-child(7) { width: 170px; }
+
+.subjectTable thead{
+  background: var(--gradient-primary) !important;
+}
+
+.subjectTable th{
+  color: var(--text-white);
+  padding: 18px;
+  text-align: left;
+  font-size: 14px;
+  font-weight: 600;
+  background: transparent !important;
+  white-space: normal;
+  word-break: normal;
+}
+
+.subjectTable tbody{
+  background-color: var(--card-bg) !important;
+}
+
+.subjectTable td{
+  padding: 18px;
+  border-bottom: 1px solid var(--border-color);
+  font-size: 14px;
+  color: var(--text-secondary);
+  background-color: var(--card-bg) !important;
+  word-break: break-word;
+}
+
+.subjectTable tbody tr{
+  transition: 0.3s;
+}
+
+.subjectTable tbody tr:hover td{
+  background-color: var(--row-hover-bg) !important;
+}
+
+.subjectTable tbody tr:nth-child(even) td{
+  background-color: var(--input-bg) !important;
+}
+
+.subjectRegularBadge{
+  display: inline-block;
+  background: var(--badge-verified-bg);
+  color: var(--badge-verified-color);
+  padding: 6px 14px;
+  border-radius: 30px;
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+  word-break: keep-all;
+}
+
+.subjectOptionalBadge{
+  display: inline-block;
+  background: var(--badge-pending-bg);
+  color: var(--badge-pending-color);
+  padding: 6px 14px;
+  border-radius: 30px;
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+  word-break: keep-all;
+}
+
+.subjectActionBox{
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.subjectEditBtn{
+  background: var(--success-color);
+  color: var(--text-white);
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+  font-size: 13px;
+  white-space: nowrap;
+  word-break: keep-all;
+}
+
+.subjectEditBtn:hover{
+  opacity: 0.85;
+}
+
+.subjectDeleteBtn{
+  background: var(--danger-color);
+  color: var(--text-white);
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+  font-size: 13px;
+  white-space: nowrap;
+  word-break: keep-all;
+}
+
+.subjectDeleteBtn:hover{
+  opacity: 0.85;
+}
+
+.subjectNoTeacher{
+  color: var(--text-light);
+  font-style: italic;
+}
+
+.subjectNoData{
+  text-align: center;
+  padding: 35px !important;
+  color: var(--text-light);
+  font-weight: 500;
+  background-color: var(--card-bg) !important;
+}
+
+@media(max-width:768px){
+
+  .subjectContainer{
+    padding: 15px;
+  }
+
+  .subjectTitle{
+    font-size: 24px;
+  }
+
+  .subjectFilterBox{
+    flex-direction: column;
+  }
+
+  .subjectSelect{
+    min-width: 0;
+    width: 100%;
+  }
+
+  .subjectForm{
+    grid-template-columns: 1fr;
+  }
+
+}

@@ -1,0 +1,608 @@
+.attendance {
+  min-height: 100vh;
+  background-color: var(--bg-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 100vw;
+  padding: 3rem;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.accessCard {
+  background: var(--card-bg);
+  max-width: 550px;
+  width: 90%;
+  position: fixed;
+  top: 50%;
+  left: 55%;
+  transform: translate(-50%, -50%);
+  padding: 3.5rem;
+  border-radius: 16px;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--border-color);
+  z-index: 100;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+
+.accessCard h2 {
+  margin-top: 0;
+  margin-bottom: 2.5rem;
+  font-size: 2rem;
+  color: var(--text-primary);
+  font-weight: 700;
+  text-align: center;
+}
+
+.input-group {
+  margin-bottom: 1.75rem;
+}
+
+.input-group label {
+  display: block;
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-bottom: 0.6rem;
+  color: var(--text-secondary);
+}
+
+.input-group input,
+.input-group select {
+  width: 100%;
+  padding: 0.9rem 1.1rem;
+  font-size: 1.1rem;
+  border: 1px solid var(--secondBorder-color);
+  border-radius: 8px;
+  background-color: var(--card-bg);
+  color: var(--text-primary);
+  outline: none;
+  transition: all 0.15s ease;
+  box-sizing: border-box;
+}
+
+.input-group input:focus,
+.input-group select:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+.input-group .readonly-input {
+  background-color: var(--bg-color);
+  border-style: dashed;
+  margin-top: 0.6rem;
+}
+
+.attendanceSheet {
+  max-width: 1700px;
+  margin: 0 auto;
+  padding: 1.5rem;
+  background-color: var(--card-bg);
+  box-sizing: border-box;
+  border-radius: 6px;
+}
+
+.attendanceInfoHeader {
+  background: var(--card-bg);
+  padding: 1.25rem;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  border-left: 4px solid var(--primary-color);
+  margin-bottom: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.meta-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.meta-grid strong {
+  color: var(--text-primary);
+}
+
+.lock-status-alert {
+  font-size: 0.85rem;
+  font-weight: 600;
+  background: var(--primary-color);
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  color: var(--text-white);
+  box-shadow: var(--shadow-sm);
+}
+
+.action-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.25rem;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.search-wrapper {
+  flex: 1;
+  max-width: 360px;
+  min-width: 250px;
+}
+
+.search-input {
+  width: 100%;
+  padding: 0.6rem 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  font-size: 0.9rem;
+  outline: none;
+  background-color: var(--card-bg);
+  color: var(--text-primary);
+  transition: all 0.15s ease;
+}
+
+.search-input:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.sort-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.sort-select {
+  padding: 0.6rem 0.875rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  background-color: var(--card-bg);
+  color: var(--text-primary);
+  outline: none;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.sort-select:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.sort-dir-btn {
+  font-family: inherit;
+  font-size: 0.875rem;
+  font-weight: 600;
+  padding: 0.6rem 1rem;
+  border-radius: 6px;
+  border: 1px solid var(--border-color);
+  background: var(--card-bg);
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+}
+
+.sort-dir-btn:hover {
+  background: var(--bg-color);
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+}
+
+.button-group {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.primary-btn, .save-changes-btn, .edit-changes-btn, .back-btn {
+  font-family: inherit;
+  font-size: 0.875rem;
+  font-weight: 600;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.primary-btn {
+  width: 100%;
+  background: var(--primary-color);
+  color: var(--text-white);
+  margin-top: 1.5rem;
+  font-size: 1.05rem;
+  padding: 0.9rem 1.2rem;
+}
+.primary-btn:hover:not(:disabled) { background: var(--primary-dark); }
+.primary-btn:disabled { background: var(--text-light); color: var(--text-white); cursor: not-allowed; }
+
+.save-changes-btn { background: var(--success-color); color: var(--text-white); }
+.save-changes-btn:hover:not(:disabled) { opacity: 0.9; }
+
+.edit-changes-btn { background: var(--primary-color); color: var(--text-white); border: 1px solid var(--border-color); }
+.edit-changes-btn:hover:not(:disabled) { background: var(--bg-color); border-color: var(--text-light); color: var(--primary-color); }
+
+.back-btn { background: var(--accent-color); color: var(--text-white); }
+.back-btn:hover { background: var(--text-primary); }
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.table-wrapper {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  overflow-x: auto;
+  overflow-y: auto;
+  max-height: 65vh;
+  box-shadow: var(--shadow-sm);
+  position: relative;
+  padding-bottom: 15px;
+}
+
+.table-wrapper::-webkit-scrollbar {
+  height: 15px;
+  width: 15px;
+}
+.table-wrapper::-webkit-scrollbar-track {
+  background: var(--bg-color);
+  border-radius: 0 0 8px 8px;
+}
+.table-wrapper::-webkit-scrollbar-thumb {
+  background: var(--text-light);
+  border-radius: 10px;
+  border: 2px solid var(--bg-color);
+}
+.table-wrapper::-webkit-scrollbar-thumb:hover {
+  background: var(--text-secondary);
+}
+
+.interactive-table {
+  width: max-content;
+  min-width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 0.85rem;
+  text-align: center;
+  table-layout: fixed;
+}
+
+.interactive-table th,
+.interactive-table td {
+  padding: 0.5rem;
+  border-bottom: 1px solid var(--border-color);
+  border-right: 1px solid var(--border-color);
+  white-space: nowrap;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.interactive-table .day-col {
+  width: 76px;
+}
+
+.interactive-table thead th {
+  background: var(--bg-color);
+  color: var(--text-primary);
+  font-weight: 600;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.interactive-table thead th.sortable-th {
+  cursor: pointer;
+  transition: color 0.15s ease, background 0.15s ease;
+}
+
+.interactive-table thead th.sortable-th:hover {
+  color: var(--primary-color);
+  background: rgba(37, 99, 235, 0.08);
+}
+
+/* ===== STICKY COLUMNS: SN | Roll | Name ===== */
+
+/* Shared sticky behaviour */
+.interactive-table .sticky-sn,
+.interactive-table .sticky-roll,
+.interactive-table .sticky-col {
+  position: sticky;
+  background: var(--card-bg) !important;
+  z-index: 5;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+/* SN column: first, left = 0 */
+.interactive-table .sticky-sn {
+  left: 0;
+  width: 50px;
+  min-width: 50px;
+  max-width: 50px;
+}
+
+/* Roll column: starts after SN (50px) */
+.interactive-table .sticky-roll {
+  left: 50px;
+  width: 80px;
+  min-width: 80px;
+  max-width: 80px;
+}
+
+/* Name column: starts after SN + Roll (50 + 80 = 130px) */
+.interactive-table .sticky-col {
+  left: 130px;
+  width: 180px;
+  min-width: 180px;
+  max-width: 180px;
+  text-align: left;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  text-overflow: ellipsis;
+  border-right: 2px solid var(--border-color) !important;
+}
+
+/* Header cells of sticky columns stay above everything (top + left sticky) */
+.interactive-table thead th.sticky-sn,
+.interactive-table thead th.sticky-roll,
+.interactive-table thead th.sticky-col {
+  z-index: 20;
+  background: var(--border-color) !important;
+}
+
+.interactive-table thead th.sticky-roll.sortable-th:hover,
+.interactive-table thead th.sticky-col.sortable-th:hover {
+  background: var(--border-color) !important;
+  color: var(--primary-color);
+}
+
+/* Row hover */
+.interactive-table tbody tr:hover td {
+  background-color: var(--bg-color);
+}
+
+.interactive-table tbody tr:hover td.sticky-sn,
+.interactive-table tbody tr:hover td.sticky-roll,
+.interactive-table tbody tr:hover td.sticky-col {
+  background: var(--bg-color) !important;
+}
+
+.day-header-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  gap: 4px;
+}
+
+.day-num {
+  font-weight: 700;
+}
+
+.h-toggle {
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 2px 5px;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+  border-radius: 4px;
+  cursor: pointer;
+}
+.h-toggle:hover:not(:disabled) { background: rgba(250, 204, 21, 0.15); color: var(--text-primary); }
+.h-toggle.active-h { background: var(--warning-color); color: var(--text-primary); border-color: var(--warning-color); }
+
+.holiday-th {
+  background: rgba(250, 204, 21, 0.15) !important;
+}
+
+.status-cell {
+  padding: 0 !important;
+  background-color: transparent !important;
+}
+
+.status-cell.cell-p,
+.status-cell.cell-a {
+  background-color: transparent !important;
+}
+.status-cell.cell-h {
+  background-color: rgba(250, 204, 21, 0.15) !important;
+}
+
+.cell-actions {
+  display: flex;
+  height: 38px;
+  align-items: stretch;
+  justify-content: center;
+}
+
+.cell-actions button {
+  flex: 1;
+  border: none;
+  background: transparent !important;
+  font-weight: 700;
+  cursor: pointer;
+  color: var(--text-light) !important;
+  transition: all 0.1s ease;
+  font-size: 0.8rem;
+}
+
+.cell-actions button:first-child {
+  border-right: 1px solid var(--border-color);
+}
+
+.cell-actions .btn-p:hover:not(:disabled) {
+  color: #2563eb !important;
+  background: rgba(37, 99, 235, 0.12) !important;
+}
+.cell-actions .btn-p.selected {
+  color: var(--text-white) !important;
+  background: #2563eb !important;
+}
+.cell-actions .btn-a:hover:not(:disabled) {
+  color: var(--danger-color) !important;
+  background: rgba(239, 68, 68, 0.12) !important;
+}
+.cell-actions .btn-a.selected {
+  color: var(--text-white) !important;
+  background: var(--danger-color) !important;
+}
+
+.holiday-lbl {
+  display: block;
+  line-height: 38px;
+  font-weight: 700;
+  color: var(--text-primary);
+  background: var(--warning-color);
+}
+
+.report-section {
+  margin-top: 2.5rem;
+  background: var(--card-bg);
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-sm);
+}
+
+.report-section h3 {
+  font-size: 1.15rem;
+  color: var(--text-primary);
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.report-table-wrapper {
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  overflow: hidden;
+  overflow-x: auto;
+}
+
+.report-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+}
+
+.report-table th, .report-table td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.report-table th {
+  background: var(--primary-color);
+  color: var(--text-white);
+  font-weight: 600;
+  border-radius: 6px;
+}
+
+.report-table tbody tr:hover {
+  background: var(--bg-color);
+}
+
+.txt-p { color: var(--text-primary); font-weight: 600; }
+.txt-a { color: var(--text-primary); font-weight: 600; }
+.txt-h { color: var(--text-primary); font-weight: 600; }
+
+.pct-badge {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  font-weight: 700;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+.pct-good { background: rgba(37, 99, 235, 0.15); color: #2563eb; }
+.pct-low { background: rgba(239, 68, 68, 0.15); color: var(--danger-color); }
+
+
+@media (max-width: 768px) {
+  .attendance {
+    padding: 1rem;
+  }
+
+  .accessCard {
+    width: 94%;
+    padding: 1.75rem;
+  }
+
+  .accessCard h2 {
+    font-size: 1.4rem;
+  }
+
+  .attendanceInfoHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .action-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .search-wrapper {
+    max-width: 100%;
+  }
+
+  .sort-wrapper {
+    width: 100%;
+  }
+
+  .sort-select {
+    flex: 1;
+  }
+
+  .button-group {
+    width: 100%;
+  }
+
+  .button-group button {
+    flex: 1;
+    text-align: center;
+    padding: 0.75rem 0.5rem;
+  }
+
+  /* Keep SN, Roll and Name sticky on mobile too, with narrower widths */
+  .interactive-table .sticky-sn {
+    left: 0;
+    width: 36px;
+    min-width: 36px;
+    max-width: 36px;
+    padding: 0.4rem 0.2rem;
+  }
+
+  .interactive-table .sticky-roll {
+    left: 36px;
+    width: 56px;
+    min-width: 56px;
+    max-width: 56px;
+    padding: 0.4rem 0.2rem;
+  }
+
+  .interactive-table .sticky-col {
+    left: 92px;
+    width: 110px;
+    min-width: 110px;
+    max-width: 110px;
+    padding-left: 0.4rem;
+    padding-right: 0.4rem;
+    font-size: 0.8rem;
+  }
+}

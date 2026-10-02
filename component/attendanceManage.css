@@ -1,0 +1,414 @@
+.attendanceManage {
+  min-height: 100vh;
+  background-color: var(--bg-color);
+  padding: 2.5rem;
+  box-sizing: border-box;
+  max-width: 1500px;
+  margin: 0 auto;
+}
+
+.manageHeader {
+  margin-bottom: 2.5rem;
+  text-align: center;
+}
+
+.manageHeader h1 {
+  font-size: 2.25rem;
+  color: var(--text-primary);
+  font-weight: 800;
+  margin: 0;
+  letter-spacing: -0.025em;
+}
+
+.manageGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.manageCard {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
+  padding: 1.75rem;
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+}
+
+.manageCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+  border-color: var(--primary-color);
+}
+
+.manageCard .cardIcon {
+  width: 52px;
+  height: 52px;
+  flex-shrink: 0;
+  border-radius: 12px;
+  background: var(--bg-color);
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  transition: all 0.2s ease;
+}
+
+.manageCard h3 {
+  margin: 0;
+  font-size: 1.15rem;
+  color: var(--text-primary);
+  font-weight: 700;
+}
+
+.manageCard.activeCard {
+  border: 2px solid var(--primary-color);
+  box-shadow: 0 8px 20px -6px rgba(37, 99, 235, 0.25);
+}
+
+.manageCard.activeCard .cardIcon {
+  background: var(--primary-color);
+  color: #ffffff;
+}
+
+.formSection {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 2.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  margin-bottom: 2rem;
+}
+
+.formSection h2 {
+  margin-top: 0;
+  margin-bottom: 2rem;
+  font-size: 1.5rem;
+  color: var(--text-primary);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.monthRangeRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.inputGroup label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.inputGroup input,
+.inputGroup select {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-size: 0.95rem;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background-color: var(--card-bg);
+  color: var(--text-primary);
+  outline: none;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+}
+
+.inputGroup input:focus,
+.inputGroup select:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+.inputGroup select:disabled {
+  background-color: var(--bg-color);
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.submitBtn {
+  background: var(--primary-color);
+  color: #ffffff;
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 0.8rem 2.2rem;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0.5rem;
+}
+
+.submitBtn:hover:not(:disabled) {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.submitBtn:disabled {
+  background-color: var(--text-secondary);
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.editBtn {
+  background: transparent;
+  color: var(--primary-color);
+  border: 1px solid var(--border-color);
+  padding: 0.45rem 0.85rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: all 0.15s ease;
+}
+
+.editBtn:hover {
+  background: var(--primary-color);
+  color: #ffffff;
+  border-color: var(--primary-color);
+}
+
+.deleteBtn {
+  color: #dc2626;
+}
+
+.deleteBtn:hover {
+  background: #dc2626;
+  color: #ffffff;
+  border-color: #dc2626;
+}
+
+.searchBarContainer {
+  position: relative;
+  margin-top: 2rem;
+  margin-bottom: 1.5rem;
+  max-width: 450px;
+}
+
+.searchBarContainer .searchIcon {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  pointer-events: none;
+}
+
+.studentSearchBar {
+  width: 100%;
+  padding: 0.75rem 1rem 0.75rem 2.5rem;
+  font-size: 0.9rem;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background-color: var(--card-bg);
+  color: var(--text-primary);
+  outline: none;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+}
+
+.studentSearchBar:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.recordTable {
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  background: var(--card-bg);
+  margin-top: 1.5rem;
+  -webkit-overflow-scrolling: touch;
+}
+
+.recordTable table {
+  width: 100%;
+  min-width: 980px;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+  text-align: left;
+  table-layout: auto;
+}
+
+.accessCodeTable table {
+  min-width: 900px;
+}
+
+.recordTable th {
+  background: var(--bg-color);
+  color: var(--text-primary);
+  font-weight: 700;
+  padding: 1rem 1.1rem;
+  border-bottom: 2px solid var(--border-color);
+  white-space: nowrap;
+  position: sticky;
+  top: 0;
+}
+
+.recordTable td {
+  padding: 1rem 1.1rem;
+  border-bottom: 1px solid var(--border-color);
+  color: var(--text-primary);
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
+.recordTable tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.recordTable tbody tr:hover {
+  background: rgba(37, 99, 235, 0.04);
+}
+
+.table-status-text {
+  text-align: center !important;
+  padding: 3rem !important;
+  font-size: 1rem;
+  font-weight: 500;
+  white-space: normal !important;
+}
+
+.text-muted {
+  color: var(--text-secondary);
+}
+
+.rollBadge {
+  background: var(--bg-color);
+  padding: 0.3rem 0.65rem;
+  border-radius: 6px;
+  font-weight: 600;
+  border: 1px solid var(--border-color);
+  display: inline-block;
+}
+
+.studentNameCell {
+  font-weight: 600;
+}
+
+.txt-present { color: #16a34a; font-weight: 600; }
+.txt-absent { color: #dc2626; font-weight: 600; }
+.txt-holiday { color: #d97706; font-weight: 600; }
+.txt-bold { font-weight: 700; }
+
+.badge {
+  display: inline-block;
+  padding: 0.35rem 0.8rem;
+  font-weight: 700;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+.badge-good {
+  background: rgba(22, 163, 74, 0.12);
+  color: #16a34a;
+}
+
+.badge-warn {
+  background: rgba(220, 38, 38, 0.12);
+  color: #dc2626;
+}
+
+.animateFade {
+  animation: fadeIn 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.accessCodeTableWrapper {
+  margin-top: 2.5rem;
+}
+
+.accessCodeTableTitle {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+.accessCodeTable thead th {
+  background: var(--primary-color);
+  color: #ffffff;
+  border-bottom: 2px solid var(--primary-color);
+}
+
+.actionsCell {
+  display: flex;
+  gap: 0.6rem;
+  white-space: nowrap;
+  min-width: 190px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .attendanceManage {
+    padding: 1rem;
+  }
+
+  .manageHeader h1 {
+    font-size: 1.6rem;
+  }
+
+  .formSection {
+    padding: 1.5rem;
+  }
+
+  .formSection h2 {
+    font-size: 1.25rem;
+  }
+
+  .monthRangeRow {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .manageGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .submitBtn {
+    width: 100%;
+  }
+}
